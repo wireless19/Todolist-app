@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+require("dotenv").config();
 // const date = require(__dirname + "/date.js");
 
 const app = express();
@@ -28,7 +29,7 @@ app.use(express.static("public"));
 
 
 // connection to our mongodb atlas
-mongoose.connect("mongodb+srv://admin-victor:test123@cluster0.lbgby.mongodb.net/todolistDB", {
+mongoose.connect(process.env.MONGO_USERLINK, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
